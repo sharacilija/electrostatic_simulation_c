@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build charges",
+            "type": "shell",
+            "command": "C:/msys64/mingw64/bin/gcc.exe",
+            "args": [
+                "charges.c",
+                "-o",
+                "charges.exe",
+                "-Wall",
+                "-Wextra",
+                "-lraylib",
+                "-lopengl32",
+                "-lgdi32",
+                "-lwinmm"
+            ],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Run charges",
+            "type": "shell",
+            "command": ".\\charges.exe"
+        },
+        {
+            "label": "Build & Run",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Build charges",
+                "Run charges"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
